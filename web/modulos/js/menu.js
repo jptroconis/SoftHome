@@ -15,6 +15,14 @@ angular.module("softhome", []).run(function ($rootScope, $http) {
     isActivo();
     activarEstilo();
     
+    $rootScope.reservar = function(id){
+        $http.get("ReservarInmueble?id="+id).success(function(data){
+            alert(data);
+        }).error(function(){
+            alert("El servicio no esta disponible por el momento"); //si ocurre un error
+        });;
+    };
+    
     $rootScope.buscarServicios = function() {  // busqueda de inmuebles 
         $rootScope.ver = false;
         $rootScope.contenido = "public/servicio/verInmueble.html";

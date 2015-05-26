@@ -1,3 +1,5 @@
+/* global angular */
+
 angular.module("softhome").controller("inmueble", function ($scope, $http) {
 
     $scope.ajaxmap = false;

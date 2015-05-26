@@ -11,7 +11,7 @@
                     <p>Capacidad: {{x.capacidad}}</p>
                     <p>Estado: {{x.estado}}</p>
                     <form action="../VistaReserva.jsp" method="post">
-                       <p><a href="http://localhost:8083/SoftHome/VistaReserva.jsp?id=" class="btn btn-primary" role="submit">Reservar</a></p> 
+                       <p><a class="btn btn-primary" data-ng-click="reservar(x.id)" >Reservar</a></p> 
                     </form>
                     
                 </div>

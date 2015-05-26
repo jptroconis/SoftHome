@@ -44,6 +44,7 @@ public class VerInmuebles extends HttpServlet {
                 List<Map> lm = new LinkedList<>();
                 for (Inmuebles i : li) {
                     Map temp = new HashMap();
+                    temp.put("id", i.getId());
                     temp.put("imagen", i.getImagen());
                     temp.put("nombre", i.getPersonas().getNombre() + " " + i.getPersonas().getApellido());
                     temp.put("estrato", i.getEstrato());

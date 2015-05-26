@@ -43,6 +43,11 @@ public class Inmuebles  implements java.io.Serializable {
     public Inmuebles() {
     }
 
+    public Inmuebles(long id) {
+        this.id = id;
+    }
+
+    
 	
     public Inmuebles(long id, Personas personas, TiposHabitacion tiposHabitacion, TiposInmuebles tiposInmuebles, int numeroHabitaciones, int numeroBanos, int estrato, int capacidad, String direccion, String descripcion, String imagen) {
         this.id = id;
