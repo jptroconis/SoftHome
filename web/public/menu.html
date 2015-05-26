@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default" role="navigation" style="background: white">
+    <!-- El logotipo y el icono que despliega el menú se agrupan
+         para mostrarlos mejor en los dispositivos móviles -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <img class="img-responsive" style="width:100px"  src="imgs/logo_proyecto.jpg">
+    </div>
+
+    <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+         otro elemento que se pueda ocultar al minimizar la barra -->
+    <div data-ng-include="servicio"></div> <!-- esta parte incluye los servicios para que se adapten a dispositivos-->
+</nav>

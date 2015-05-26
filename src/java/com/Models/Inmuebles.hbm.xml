@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/05/2015 05:32:18 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.Models.Inmuebles" table="inmuebles" catalog="data_home" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="personas" class="com.Models.Personas" fetch="select">
+            <column name="id_arrendador" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tiposHabitacion" class="com.Models.TiposHabitacion" fetch="select">
+            <column name="id_tipo_habitacion" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tiposInmuebles" class="com.Models.TiposInmuebles" fetch="select">
+            <column name="id_tipo_inmueble" not-null="true" />
+        </many-to-one>
+        <property name="numeroHabitaciones" type="int">
+            <column name="numero_habitaciones" not-null="true" />
+        </property>
+        <property name="numeroCamas" type="java.lang.Integer">
+            <column name="numero_camas" />
+        </property>
+        <property name="numeroBanos" type="int">
+            <column name="numero_banos" not-null="true" />
+        </property>
+        <property name="estrato" type="int">
+            <column name="estrato" not-null="true" />
+        </property>
+        <property name="capacidad" type="int">
+            <column name="capacidad" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="60" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="100" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="45" />
+        </property>
+        <property name="imagen" type="string">
+            <column name="imagen" length="100" not-null="true" />
+        </property>
+        <set name="suscripcioneses" table="suscripciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_inmueble" not-null="true" />
+            </key>
+            <one-to-many class="com.Models.Suscripciones" />
+        </set>
+        <set name="reservas" table="reserva" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_inmuebles" not-null="true" />
+            </key>
+            <one-to-many class="com.Models.Reserva" />
+        </set>
+        <set name="valoracioneses" table="valoraciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_inmueble" not-null="true" />
+            </key>
+            <one-to-many class="com.Models.Valoraciones" />
+        </set>
+    </class>
+</hibernate-mapping>

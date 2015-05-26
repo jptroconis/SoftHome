@@ -1,0 +1,42 @@
+<div data-ng-controller="sesion">
+    <div class="modal fade" id="sesion" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Iniciar Sesion</h4>
+                </div>
+                <form id="formS" data-ng-submit="iniciar()">
+                    <div class="modal-body">
+
+                        <div class="input-group">
+                            <input type="text" data-ng-model="cliente.user" class="form-control" placeholder="Usuario" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            </span>
+                        </div>
+
+                        <br>
+
+                        <div class="input-group">
+                            <input type="password" data-ng-model="cliente.pass" class="form-control" placeholder="Constraseña" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">
+                                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-ng-click="reset()"  >Cerrar</button>
+                    <button type="submit" form="formS" class="btn btn-primary">
+                        <img data-ng-show="majax" src="imgs/load.GIF" width="20" height="20" alt="load"/>
+                        Iniciar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

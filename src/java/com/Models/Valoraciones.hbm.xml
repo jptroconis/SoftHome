@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/05/2015 05:32:18 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.Models.Valoraciones" table="valoraciones" catalog="data_home" optimistic-lock="version">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="inmuebles" class="com.Models.Inmuebles" fetch="select">
+            <column name="id_inmueble" not-null="true" />
+        </many-to-one>
+        <many-to-one name="personas" class="com.Models.Personas" fetch="select">
+            <column name="id_valorador" not-null="true" />
+        </many-to-one>
+        <property name="calificacion" type="java.lang.Integer">
+            <column name="calificacion" />
+        </property>
+        <property name="comentario" type="string">
+            <column name="comentario" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

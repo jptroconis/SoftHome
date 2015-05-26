@@ -1,0 +1,26 @@
+.borderInmu {
+    margin-right: 40%;
+};
+
+.mapa {
+    float: right; width: 40%;margin-top: -22%; padding-top:22%;height:100%
+}
+
+.inmueble{
+
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}
+
+body{
+    background: rgba(179,220,237,0.58);
+background: -moz-radial-gradient(center, ellipse cover, rgba(179,220,237,0.58) 0%, rgba(63,81,181,0.75) 40%, rgba(63,81,181,1) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(179,220,237,0.58)), color-stop(40%, rgba(63,81,181,0.75)), color-stop(100%, rgba(63,81,181,1)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(179,220,237,0.58) 0%, rgba(63,81,181,0.75) 40%, rgba(63,81,181,1) 100%);
+background: -o-radial-gradient(center, ellipse cover, rgba(179,220,237,0.58) 0%, rgba(63,81,181,0.75) 40%, rgba(63,81,181,1) 100%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(179,220,237,0.58) 0%, rgba(63,81,181,0.75) 40%, rgba(63,81,181,1) 100%);
+background: radial-gradient(ellipse at center, rgba(179,220,237,0.58) 0%, rgba(63,81,181,0.75) 40%, rgba(63,81,181,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#3f51b5', GradientType=1 );
+}

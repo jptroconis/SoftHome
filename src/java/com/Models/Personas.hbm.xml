@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/05/2015 05:32:18 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.Models.Personas" table="personas" catalog="data_home" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="20" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="20" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="100" not-null="true" />
+        </property>
+        <property name="fijo" type="string">
+            <column name="fijo" length="7" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="10" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="15" not-null="true" />
+        </property>
+        <property name="fechaNac" type="date">
+            <column name="fecha_nac" length="10" not-null="true" />
+        </property>
+        <set name="suscripcioneses" table="suscripciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_arrendador" not-null="true" />
+            </key>
+            <one-to-many class="com.Models.Suscripciones" />
+        </set>
+        <one-to-one name="usuarios" class="com.Models.Usuarios"></one-to-one>
+        <set name="reservas" table="reserva" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_personas" not-null="true" />
+            </key>
+            <one-to-many class="com.Models.Reserva" />
+        </set>
+        <set name="inmuebleses" table="inmuebles" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_arrendador" not-null="true" />
+            </key>
+            <one-to-many class="com.Models.Inmuebles" />
+        </set>
+        <set name="valoracioneses" table="valoraciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_valorador" not-null="true" />
+            </key>
+            <one-to-many class="com.Models.Valoraciones" />
+        </set>
+    </class>
+</hibernate-mapping>

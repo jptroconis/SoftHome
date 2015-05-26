@@ -1,0 +1,59 @@
+<div id="car" class="carousel slide" data-ride="carousel" data-ng-controller="carousel" >   <!-- Controlador de carrusel -->
+    <!-- Indicaciones de carrusel -->
+    <ol class="carousel-indicators">
+        <li data-target="#car" data-slide-to="{{mainSlide}}" class="active"></li>
+        <li data-target="#car" data-ng-repeat="s in slides" data-slide-to="{{s}}"></li>
+    </ol>
+
+    <!-- Envoltura para dispositivos -->
+    <div  class="carousel-inner tamaño" role="listbox" >
+        
+        <div class="item  active" >
+            <img class="img-responsive tamaño" src="{{main}}" alt="...">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        
+        <div class="item" data-ng-repeat="im in imgs" >
+            <img class="img-responsive tamaño" src="{{im}}" alt="...">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Controles -->
+    <a  class="left carousel-control ctrl" href="#car" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control ctrl" href="#car" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<header>
+    <style> // estilos para pantallas 
+        .tamaño {width: 100%}
+        @media (min-width : 1200px){
+            .tamaño, .ctrl { height: 600px }
+        }
+        @media (min-width : 768px) and (max-width : 979px) {
+            .tamaño, .ctrl { height: 320px }
+        }
+        @media (min-width : 571) and (max-width : 767px) {
+            .tamaño, .ctrl { height: 260px }
+        }
+        @media (max-width : 570px){
+            .tamaño, .ctrl { height: 130px; }
+        }
+    </style>
+</header>
+<script> // movimiento de carrusel
+    $("#car").carousel({
+        interval : 3000
+    });
+     $(".ctrl").on('click', function(e){
+        e.preventDefault();  // funcion para prevenir que la persona mueva el carrusel
+     }); 
+</script>

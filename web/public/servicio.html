@@ -1,0 +1,39 @@
+<div id="serv" data-ng-controller="servicio" class="collapse navbar-collapse navbar-ex1-collapse">
+
+    <form class="navbar-form navbar-left" role="search">
+        <ul data-ng-show="!complete"  class="nav navbar-nav navbar-left col-lg-6">
+            <li class="dropdown">
+                <input type="text" id="busqueda" data-ng-model="tbar" class="dropdown-toggle form-control" data-toggle="dropdown" style="width: 100%">
+                <ul class="dropdown-menu" id="prueba" >
+                    <li data-ng-repeat="z in Bars">
+                        <a data-ng-click="asignar(z)" href="#">
+                            <span class="glyphicon glyphicon-map-marker"></span>
+                            {{z.formatted_address}}
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="text-center"><img src="imgs/google.gif"></li>
+                </ul>
+            </li>
+            <li style="float: left" data-ng-show="ajaxmap"><img data-ng-click="terminar()" src="imgs/maps.GIF"></li>
+        </ul>
+        <input data-ng-click="reAsignar()" id="final" name="barrio" data-ng-show="complete" type="text" required class="form-control col-lg-6" style="width: 60%" readonly value="{{direc}}" >
+        <input type="button" data-ng-click="envioSeguro()" value="Buscar" class="form-control dropdown" >
+    </form>
+
+
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{cliente.nombre}}<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" >
+                <li data-ng-click="publicar()" ><a href="#">Publicar un Inmueble</a></li>
+                <li><a href="#">Ver Mis Inmuebles</a></li>
+                <li><a href="#">Ver Mis Datos</a></li>
+                <li class="divider"></li>
+                <li data-ng-click="cerrar()" ><a href="#">Cerrar Sesion</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

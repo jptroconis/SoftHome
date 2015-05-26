@@ -1,0 +1,90 @@
+<div data-ng-controller="inmueble" class="inmueble container text-center" style="background-color: white;">
+    <br>
+    <h2 class="text-center"><strong>PUBLICA TU INMUEBLE</strong></h2>
+    <div class="divider" style="background-color: #000" ></div>
+    <div style="float: start">
+        <form class="form-horizontal" role="form" id="reg" enctype="multipart/form-data">
+
+            <h3><strong>Tipo de Alojamiento:</strong></h3>
+            <div class="btn-group objs" data-toggle="buttons">
+                <label class="btn btn-primary" data-ng-repeat="x in Alos" data-toggle="tooltip" data-placement="bottom" title="{{x.des}}" >
+                    <span data-ng-class="x.icon"></span>
+                    <input type="radio" required name="alojamiento" id="{{x.id}}" value="{{x.id}}" >{{x.nombre}}
+                </label>
+            </div><br>
+
+            <h3><strong>Tipo de Habitacion:</strong></h3>
+            <div class="btn-group objs" data-toggle="buttons">
+                <label class="btn btn-primary" data-ng-repeat="y in Habs" data-toggle="tooltip" data-placement="bottom" title="{{y.des}}" >
+                    <span data-ng-class="y.icon"></span>
+                    <input type="radio" name="habitacion" required id="{{y.id}}" value="{{y.id}}" >{{y.nombre}}
+                </label>
+            </div><br><br>
+
+            <div data-ng-class="css" >
+                <h3><label class="control-label col-lg-6"><strong>Barrios:</strong></label></h3>
+                <ul data-ng-show="!complete"  class="nav navbar-nav navbar-left col-lg-6">
+                    <li class="dropdown">
+                        <input type="text" id="barrio" data-ng-model="tbar" class="dropdown-toggle form-control" data-toggle="dropdown">
+                        <ul class="dropdown-menu" id="prueba" >
+                            <li data-ng-repeat="z in Bars">
+                                <a data-ng-click="asignar(z)" href="#">
+                                    <span class="glyphicon glyphicon-map-marker"></span>
+                                    {{z.formatted_address}}
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="text-center"><img src="imgs/google.gif"></li>
+                        </ul>
+                    </li>
+                    <li data-ng-show="ajaxmap"><img data-ng-click="terminar()" src="imgs/maps.GIF"></li>
+                </ul>
+                <input data-ng-click="reAsignar()" name="barrio" data-ng-show="complete" type="text" required class="form-control col-lg-6" style="width: 40%" readonly value="{{inmueble.direc}}" >
+                <br>
+            </div>
+            
+            <div data-ng-class="css">
+                <div class="form-horizontal">
+                    <h3><label class="control-label col-lg-6"><strong>Numero de Habitaciones: &nbsp</strong></label></h3>
+                    <input name="nhabitacion" required type="number" min="1" max="100" class="form-control col-lg-4" style="width: 20%;float: left;text-align: center" >
+                </div><br>
+
+                <div class="form-horizontal">
+                    <h3><label class="control-label col-lg-6"><strong>Numero de Baños: &nbsp</strong></label></h3>
+                    <input name="nbanos" required type="number" min="1" max="30" class="form-control col-lg-4" style="width: 20%;float: left;text-align: center" >
+                </div><br>
+
+                <div class="form-horizontal">
+                    <h3><label class="control-label col-lg-6"><strong>Capacidad: &nbsp</strong></label></h3>
+                    <input name="ncapacidad" required type="number" min="1" max="50" class="form-control col-lg-4" style="width: 20%;float: left;text-align: center" >
+                </div><br>
+
+                <div class="form-horizontal">
+                    <h3><label class="control-label col-lg-6"><strong>Estrato: &nbsp</strong></label></h3>
+                    <input name="nestrato" required type="number" min="1" max="6" class="form-control col-lg-4" style="width: 20%;text-align: center" >
+                </div>
+                <br>
+
+                <div class="form-horizontal">
+                    <h3><label for="imagen" class="col-lg-6 control-label" ><strong>Publique una Imagen: &nbsp</strong></label></h3>
+                    <input type="file" required class="form-control col-lg-6" id="imagen" name="file" style="width:40%" >
+                </div><br><br><br>
+            </div>
+            <div>
+                <button type="submit" class="form-control btn btn-primary" style="width: 30%">Publicar Inmueble</button>
+            </div><br>
+        </form>
+    </div>
+
+    <div id="mapa" class="img-thumbnail" style="float: right; width: 40%;margin-top: -28%; padding-top:20%;">
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.objs').mouseenter(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    });
+    cargarMapa();
+</script>

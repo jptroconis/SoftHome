@@ -1,0 +1,22 @@
+<div class="inmueble container-fluid text-center" style="background-color: white;">
+    <div class="row text-center">
+        <br>
+        <div class="col-sm-6 col-md-4" data-ng-repeat="x in res">
+            <div class="thumbnail">
+                <img src="imgs/main/{{x.imagen}}.jpg" alt="..." style="{{estilo}}">
+                <div class="caption">
+                    <h3>Propietario: {{x.nombre}}</h3>
+                    <p>Estrato: {{x.estrato}}</p>
+                    <p>Tipo de Inmueble: {{x.tinmueble}}</p>
+                    <p>Capacidad: {{x.capacidad}}</p>
+                    <p>Estado: {{x.estado}}</p>
+                    <form action="../VistaReserva.jsp" method="post">
+                       <p><a href="http://localhost:8083/SoftHome/VistaReserva.jsp?id=" class="btn btn-primary" role="submit">Reservar</a></p> 
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

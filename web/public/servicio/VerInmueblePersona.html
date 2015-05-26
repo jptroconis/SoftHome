@@ -1,0 +1,20 @@
+<div class="inmueble container-fluid text-center" style="background-color: white;">
+    <div class="row text-center">
+        <br>
+        <div class="col-sm-6 col-md-4" data-ng-repeat="x in res">
+            <div class="thumbnail">
+                <img src="imgs/main/{{x.imagen}}.jpg" alt="..." style="{{estilo}}">
+                <div class="caption">
+                    <h3>Propietario: {{x.nombre}}</h3>
+                    <p>Estrato: {{x.estrato}}</p>
+                    <p>Tipo de Inmueble: {{x.tinmueble}}</p>
+                    <p>Capacidad: {{x.capacidad}}</p>
+                    <p>Estado: {{x.estado}}</p>
+                    <p><a href="" class="btn btn-primary" role="submit">Salir</a></p> 
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

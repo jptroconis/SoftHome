@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/05/2015 05:32:18 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.Models.TiposHabitacion" table="tipos_habitacion" catalog="data_home" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" unique="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="250" />
+        </property>
+        <property name="icono" type="string">
+            <column name="icono" length="250" />
+        </property>
+        <set name="inmuebleses" table="inmuebles" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_tipo_habitacion" not-null="true" />
+            </key>
+            <one-to-many class="com.Models.Inmuebles" />
+        </set>
+    </class>
+</hibernate-mapping>

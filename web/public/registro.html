@@ -1,0 +1,147 @@
+<div data-ng-controller="persona" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Formulario de Registro</h4>
+            </div>
+
+
+            <div class="modal-body">
+
+                <div class="input-group">
+                    <input type="text" data-ng-model="persona.ide" class="form-control" placeholder="Identificacion" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <input type="text" data-ng-model="persona.user" class="form-control" placeholder="Nombre de Usuario" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <input type="password"  data-ng-model="persona.pass" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <input type="text" data-ng-model="persona.nombre"  class="form-control" placeholder="Nombre" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <input type="text" data-ng-model="persona.apellido" class="form-control" placeholder="Apellidos" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <input class="form-control datepicker" id="date" data-ng-model="persona.fecha" value="{{persona.fecha}}" placeholder="Fecha Nacimientos -> Ej: 2014-05-15" type="text"  data-date-format="yyyy-mm-dd" style="text-align: justify" required >
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <input type="text" data-ng-model="persona.direccion" class="form-control" placeholder="Direccion de Correo" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <input type="text" data-ng-model="persona.fijo" class="form-control" placeholder="Telefono Fijo" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <input type="text" data-ng-model="persona.celular" class="form-control" placeholder="Celular" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="input-group">
+                    <input type="text" data-ng-model="persona.sexo" class="form-control" placeholder="Sexo" aria-describedby="basic-addon2">
+                    <span class="input-group-addon" id="basic-addon2">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    </span>
+                </div>
+
+                <br>
+
+
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-ng-click="cancelar()" data-dismiss="modal">Cancelar</button>
+                <button type="button" data-ng-click="guardar()" class="btn btn-primary">
+                    <img data-ng-show="majax" src="imgs/load.GIF" width="20" height="20" alt="load"/>
+                    Registrarse
+                </button>
+            </div> 
+        </div>
+    </div>
+</div>
+<script>
+// Campo bootstrap-datepicker
+    $('#date').datepicker({
+        format: "dd-mm-yyyy",
+        language: "es",
+        autoclose: true,
+        todayBtn: true
+    });
+    $('#date').datepicker({
+        format: "dd-mm-yyyy",
+        language: "es",
+        autoclose: true,
+        todayBtn: true
+    }).on(
+            'show', function () {
+                // Obtener valores actuales z-index de cada elemento
+                var zIndexModal = $('#myModal').css('z-index');
+                var zIndexFecha = $('.datepicker').css('z-index');
+            });
+    $('#date').datepicker({
+        format: "dd-mm-yyyy",
+        language: "es",
+        autoclose: true,
+        todayBtn: true
+    }).on(
+            'show', function () {
+                // Obtener valores actuales z-index de cada elemento
+                var zIndexModal = $('#myModal').css('z-index');
+                var zIndexFecha = $('.datepicker').css('z-index');
+                $('.datepicker').css('z-index', zIndexModal + 1);
+            });
+</script>
